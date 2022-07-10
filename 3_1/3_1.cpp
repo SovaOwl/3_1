@@ -1,42 +1,46 @@
-﻿#include <iostream>
+#include <iostream>
 
 using namespace std;
 
 class Calculator
 {
+private:
+	int num1 = -999;
+	int num2 = -999;
+
 public:
-	int num1;
-	int num2;
+	int nume1 = num1;
+	int	nume2 = num2;
 
 	double add()
 	{
-		return num1 + num2;
+		return nume1 + nume2;
 	}
 	double multiply()
 	{
-		return num1 * num2;
+		return nume1 * nume2;
 	}
 	double subtract_1_2()
 	{
-		return num1 - num2;
+		return nume1 - nume2;
 	}
 	double subtract_2_1()
 	{
-		return num2 - num1;
+		return nume2 - nume1;
 	}
 	double divide_1_2()
 	{
-		return num1 / num2;
+		return nume1 / nume2;
 	}
 	double divide_2_1()
 	{
-		return num2 / num1;
+		return nume2 / nume1;
 	}
-	bool set_num1(double num1)
+	bool set_num1(double nume1)
 	{
-		if (num1 != 0)
+		if (nume1 != 0)
 		{
-			this->num1 = num1;
+			this->nume1 = nume1;
 			return true;
 		}
 		else
@@ -44,11 +48,11 @@ public:
 			return false;
 		}
 	}
-	bool set_num2(double num2)
+	bool set_num2(double nume2)
 	{
-		if (num2 != 0)
+		if (nume2 != 0)
 		{
-			this->num2 = num2;
+			this->nume2 = nume2;
 			return true;
 		}
 		else
@@ -103,8 +107,8 @@ int main()
 			} while (calc.set_num1(input2) == false);
 		}
 
-		calc.num1 = input1;
-		calc.num2 = input2;
+		calc.nume1 = input1;
+		calc.nume2 = input2;
 
 		print_calculator(calc, input1, input2);
 	}
