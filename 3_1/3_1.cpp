@@ -9,38 +9,36 @@ private:
 	int num2 = -999;
 
 public:
-	int nume1 = num1;
-	int	nume2 = num2;
 
-	double add()
+	double add(int num1, int num2)
 	{
-		return nume1 + nume2;
+		return num1 + num2;
 	}
-	double multiply()
+	double multiply(int num1, int num2)
 	{
-		return nume1 * nume2;
+		return num1 * num2;
 	}
-	double subtract_1_2()
+	double subtract_1_2(int num1, int num2)
 	{
-		return nume1 - nume2;
+		return num1 - num2;
 	}
-	double subtract_2_1()
+	double subtract_2_1(int num1, int num2)
 	{
-		return nume2 - nume1;
+		return num2 - num1;
 	}
-	double divide_1_2()
+	double divide_1_2(int num1, int num2)
 	{
-		return nume1 / nume2;
+		return num1 / num2;
 	}
-	double divide_2_1()
+	double divide_2_1(int num1, int num2)
 	{
-		return nume2 / nume1;
+		return num2 / num1;
 	}
-	bool set_num1(double nume1)
+	bool set_num1(double num1)
 	{
-		if (nume1 != 0)
+		if (num1 != 0)
 		{
-			this->nume1 = nume1;
+			this->num1 = num1;
 			return true;
 		}
 		else
@@ -48,11 +46,11 @@ public:
 			return false;
 		}
 	}
-	bool set_num2(double nume2)
+	bool set_num2(double num2)
 	{
-		if (nume2 != 0)
+		if (num2 != 0)
 		{
-			this->nume2 = nume2;
+			this->num2 = num2;
 			return true;
 		}
 		else
@@ -62,14 +60,14 @@ public:
 	}
 };
 
-void print_calculator(Calculator& calc, int input1, int input2)
+void print_calculator(Calculator calc, int input1, int input2)
 {
-	cout << "num1 + num2 = " << calc.add() << endl;
-	cout << "num1 - num2 = " << calc.subtract_1_2() << endl;
-	cout << "num2 - num1 = " << calc.subtract_2_1() << endl;
-	cout << "num1 * num2 = " << calc.multiply() << endl;
-	cout << "num1 / num2 = " << calc.divide_1_2() << endl;
-	cout << "num2 / num1 = " << calc.divide_2_1() << endl;
+	cout << "num1 + num2 = " << calc.add(input1, input2) << endl;
+	cout << "num1 - num2 = " << calc.subtract_1_2(input1, input2) << endl;
+	cout << "num2 - num1 = " << calc.subtract_2_1(input1, input2) << endl;
+	cout << "num1 * num2 = " << calc.multiply(input1, input2) << endl;
+	cout << "num1 / num2 = " << calc.divide_1_2(input1, input2) << endl;
+	cout << "num2 / num1 = " << calc.divide_2_1(input1, input2) << endl;
 }
 
 int main()
@@ -78,7 +76,7 @@ int main()
 
 	Calculator calc;
 
-	int input1=-999, input2=-999;
+	int input1 = -999, input2 = -999;
 
 	for (;;)
 	{
@@ -106,9 +104,6 @@ int main()
 				cin >> input2;
 			} while (calc.set_num1(input2) == false);
 		}
-
-		calc.nume1 = input1;
-		calc.nume2 = input2;
 
 		print_calculator(calc, input1, input2);
 	}
